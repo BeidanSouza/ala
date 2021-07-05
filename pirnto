@@ -1,0 +1,61 @@
+import discord
+from discord.ext import commands
+import random
+
+client = commands.Bot(command_prefix="cb!", case_insensitive=True)
+
+
+@client.event
+async def on_ready():
+    print('Entramos como {0.user}'.format(client))
+
+
+@client.command()
+async def oi(ctx):
+    await ctx.send(f'mama aqui {ctx.author}, glub glub')
+
+
+@client.command()
+async def online(ctx):
+    await ctx.send('bora um Brawlhallazinho @everyone?')
+
+
+@client.command()
+async def chama(ctx):
+    await ctx.send('cola ai guys to tristao bora jogar alguma coisa @everyone')
+
+
+@client.command()
+async def jogo(ctx):
+    lista = [
+        'Minecraft', 'LoL', 'Dont Starve', 'Brawhalinha', 'Stardew Valley',
+        'Transformice', 'Isaac', 'Filmizin'
+    ]
+    variavel = random.choice(lista)
+    await ctx.send(f'O joguin q a tropa vai jogar vai ser {variavel}')
+    if variavel == 'LoL':
+        await ctx.send('AH NAAAAAAAAO')
+    if variavel == 'Transformice':
+        await ctx.send('SHEEEEEEEEEEESSSHHHHH')
+
+@client.command()
+async def blouder(ctx):
+  await ctx.send('Um viadao q corre atras de uma VAGABUNDA')
+
+@client.command()
+async def enviarembed(ctx):
+  embed = discord.Embed(
+    title = 'O Lauro é  NEUTRO',
+    description = 'Sim, ele é NEUTRO',
+    colour = 255 
+  )
+
+  embed.set_author(name='Autor', icon_url='http://www.dicasdefotografia.com.br/article-images/filtro-de-densidade-neutra-por-claudia-regina.jpg')
+
+  embed.set_thumbnail(url='https://w7.pngwing.com/pngs/466/289/png-transparent-computer-icons-emoticon-neutral-face-face-computer-head-thumbnail.png')
+
+  embed.set_image(url='https://e7.pngegg.com/pngimages/843/556/png-clipart-computer-icons-emoticon-neutral-face-smiley-emoticon-thumbnail.png')
+
+  await ctx.send(embed = embed)
+
+client.run('ODYxNTkwMDk0ODk2OTU1Mzky.YOMATg.5Pg288i7waLemdW7ZiOP2wxsJGc')
